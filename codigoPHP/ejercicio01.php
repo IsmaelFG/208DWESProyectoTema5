@@ -12,7 +12,8 @@ if (
     // Envía el encabezado de autenticación
     header('WWW-Authenticate: Basic realm="Acceso restringido"');
     header('HTTP/1.0 401 Unauthorized');
-    echo "<p>Error de autenticacion</p>";
+    echo '<p>Error de autenticacion</p> <a href = "../indexProyectoTema5.html">Volver</a >';
+
     exit();
 } else {
     // Credenciales válidas
@@ -58,7 +59,7 @@ if (
                         </a>
                     </div>
                     <div class="col text-end">
-                        <a href="../indexProyectoTema3.html">
+                        <a href="../indexProyectoTema5.html">
                             <img src="/webroot/imagenes/casa-removebg-preview.png" alt="Home" width="35" height="35">
                         </a>
                         <a href="https://github.com/IsmaelFG" target="_blank">

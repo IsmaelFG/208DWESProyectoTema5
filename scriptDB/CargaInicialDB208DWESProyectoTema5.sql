@@ -18,8 +18,8 @@ VALUES
 -- Carga inicial para la tabla T02_Departamento
 INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenDeNegocio, T02_FechaBajaDepartamento)
 VALUES
-    ('D01', 'Departamento 1', '2023-01-01 08:00:00', 50000.00, NULL),
-    ('D02', 'Departamento 2', '2023-01-02 10:30:00', 75000.00, '2023-02-15 14:45:00'),
-    ('D03', 'Departamento 3', '2023-01-03 12:45:00', 30000.00, NULL),
-    ('D04', 'Departamento 4', '2023-01-04 14:15:00', 100000.00, '2023-03-10 18:30:00'),
-    ('D05', 'Departamento 5', '2023-01-05 16:30:00', 60000.00, NULL);
+    ('D01', 'Departamento 1', now(), 50000.00, NULL),
+    ('D02', 'Departamento 2', now(), 75000.00, '2023-02-15 14:45:00'),
+    ('D03', 'Departamento 3', now(), 30000.00, NULL),
+    ('D04', 'Departamento 4', now(), 100000.00, '2023-03-10 18:30:00'),
+    ('D05', 'Departamento 5', now(), 60000.00, NULL);

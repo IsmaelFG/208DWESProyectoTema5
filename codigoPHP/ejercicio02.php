@@ -14,27 +14,32 @@ try {
     // Conexión con la base de datos
     $miDB = new PDO("mysql:host=" . HOST . ";dbname=" . DBNAME, USERNAME, PASSWORD);
 
+    //Si el usuario o la contraseña no han sido enviados muestra el formulario de inicio de sesion
     if (!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW'])) {
         header('WWW-Authenticate: Basic realm="Acceso restringido"');
         header('HTTP/1.0 401 Unauthorized');
-        echo 'Se requieren credenciales para acceder a esta página.';
+        echo 'Se requieren credenciales para acceder a esta página.  <a href="../indexProyectoTema5.html">Volver</a>';
         exit();
     }
-
+    //Asignacion de variables
     $usuario = $_SERVER['PHP_AUTH_USER'];
     $contrasena = $_SERVER['PHP_AUTH_PW'];
+    //Codificacion en hash256 del usuario y la contraseña
     $hashContrasena = hash('sha256', $usuario . $contrasena);
-
-    $sql = "SELECT * FROM T01_Usuario WHERE T01_CodUsuario = ? AND T01_Password = ?";
+    //Preparamos la consulta
+    $sql = "SELECT * FROM T01_Usuario WHERE T01_CodUsuario = :usuario AND T01_Password = :hashContrasena";
     $stmt = $miDB->prepare($sql);
-    $stmt->execute([$usuario, $hashContrasena]);
+    //Ejecutamos la consulta
+    $stmt->execute(['usuario' => $usuario, 'hashContrasena' => $hashContrasena]);
 
+    //Almacenamos el resultado de la query como objeto mediante FETCH_OBJ
     $result = $stmt->fetch(PDO::FETCH_OBJ);
-
     if ($result) {
-        $nombre_usuario = $result->T01_CodUsuario;
-        echo "Bienvenido, $nombre_usuario!";
+        //Si introducimos bien el usuario y la contraseña nos muestra un mensaje de bienvenida
+        //Extraemmos el el codUsuario y lo mostramos por pantalla
+        echo "Bienvenido, $result->T01_CodUsuario!";
     } else {
+        //Si introduces mal el usuario o contraseña muestra un mensaje de error
         header('HTTP/1.1 401 Unauthorized');
         echo 'Credenciales incorrectas. Acceso denegado.';
     }
@@ -73,7 +78,7 @@ try {
                         </a>
                     </div>
                     <div class="col text-end">
-                        <a href="../indexProyectoTema3.html">
+                        <a href="../indexProyectoTema5.html">
                             <img src="/webroot/imagenes/casa-removebg-preview.png" alt="Home" width="35" height="35">
                         </a>
                         <a href="https://github.com/IsmaelFG" target="_blank">

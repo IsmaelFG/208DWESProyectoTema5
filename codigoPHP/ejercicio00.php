@@ -10,7 +10,7 @@
     <body style="margin-top:70px">
         <nav class="navbar navbar-expand-lg bg-primary fixed-top">
             <div class="container">
-                <a class="navbar-brand text-white" href="/index.html">Ejercicio00</a>
+                <a class="navbar-brand" href="/index.html">Ejercicio00</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -24,49 +24,54 @@
          * @version 1.0
          * @since 21/11/2023
          */
-        echo('<p>Variable $GLOBALS</p>');
-        foreach ($GLOBALS as $key => $value) {
-            var_dump($value);
-            echo ("<br>");
-        }
-
-        echo('<br></br><p>Variable $_SERVER</p>');
+        echo '<br><br><h2>Variable <b>$_SERVER</b></h2>';
         foreach ($_SERVER as $key => $value) {
-            echo "$key: $value<br>";
-        }
-        echo('<br></br><p>Variable $_GET</p>');
-        foreach ($_GET as $key => $value) {
-            echo "$key: $value<br>";
-        }
-        echo('<br></br><p>Variable $-POST</p>');
-        foreach ($_POST as $key => $value) {
-            echo "$key: $value<br>";
-        }
-        echo('<br></br><p>Variable $_FILES</p>');
-        foreach ($_FILES as $key => $value) {
-            echo "$key: $value<br>";
-        }
-        echo('<br></br><p>Variable $_COOKIE</p>');
-        foreach ($_COOKIE as $key => $value) {
-            echo "$key: $value<br>";
+            echo "<b>$key</b>: $value<br>";
         }
 
         if (isset($_SESSION)) {
-            echo('<br></br><p>Variable $_SESSION</p>');
+            echo '<br><br><h2>Variable <b>$_SESSION</b></h2>';
             foreach ($_SESSION as $key => $value) {
-                echo "$key: $value<br>";
+                echo "<b>$key</b>: $value<br>";
             }
         } else {
-            echo('La variable $_SESSION no esta definida');
+            echo '<h2>La variable <b>$_SESSION</b> no está definida</h2>';
         }
-        echo('<br></br><p>Variable $_REQUEST</p>');
+
+        echo '<br><br><h2>Variable <b>$_COOKIE</b></h2>';
+        foreach ($_COOKIE as $key => $value) {
+            echo "<b>$key</b>: $value<br>";
+        }
+
+        echo '<br><br><h2>Variable <b>$_GET</b></h2>';
+        foreach ($_GET as $key => $value) {
+            echo "<b>$key</b>: $value<br>";
+        }
+
+        echo '<br><br><h2>Variable <b>$_POST</b></h2>';
+        foreach ($_POST as $key => $value) {
+            echo "$key: $value<br>";
+        }
+
+        echo '<br><br><h2>Variable <b>$_FILES</b></h2>';
+        foreach ($_FILES as $key => $value) {
+            echo "<b>$key</b>: $value<br>";
+        }
+
+        echo '<br><br><h2>Variable <b>$_REQUEST</b></h2>';
         foreach ($_REQUEST as $key => $value) {
-            echo "$key: $value<br>";
+            echo "<b>$key</b>: $value<br>";
         }
-        echo('<br></br><p>Variable $_ENV</p>');
+
+        echo '<br><br><h2>Variable <b>$_ENV</b></h2>';
         foreach ($_ENV as $key => $value) {
-            echo "$key: $value<br>";
+            echo "<b>$key</b>: $value<br>";
         }
+
+        echo '<br><br><h2>Variable <b>$GLOBALS</b></h2>';
+        echo '<pre>';
+        print_r($GLOBALS);
+        echo '</pre>';
         phpinfo();
         ?>
         <footer class="bg-primary text-light py-4 fixed-bottom">
