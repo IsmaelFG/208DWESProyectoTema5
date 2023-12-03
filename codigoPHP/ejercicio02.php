@@ -4,15 +4,11 @@
  * @version 1.0
  * @since 21/11/2023
  */
-// Variables de conexión con la base de datos
-define('HOST', '192.168.20.19');
-define('DBNAME', 'DB208DWESProyectoTema5');
-define('USERNAME', 'user208DWESProyectoTema5');
-define('PASSWORD', 'paso');
+require_once '../config/confDB.php';
 
 try {
     // Conexión con la base de datos
-    $miDB = new PDO("mysql:host=" . HOST . ";dbname=" . DBNAME, USERNAME, PASSWORD);
+    $miDB = new PDO(DSN, DBNAME, USERNAME, PASSWORD);
 
     //Si el usuario o la contraseña no han sido enviados muestra el formulario de inicio de sesion
     if (!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW'])) {
@@ -41,7 +37,7 @@ try {
     } else {
         //Si introduces mal el usuario o contraseña muestra un mensaje de error
         header('HTTP/1.1 401 Unauthorized');
-        echo 'Credenciales incorrectas. Acceso denegado.';
+        echo 'Credenciales incorrectas. Acceso denegado.<a href = "../indexProyectoTema5.html">Volver</a >';
     }
 } catch (PDOException $e) {
     die("Error en la conexión: " . $e->getMessage());
