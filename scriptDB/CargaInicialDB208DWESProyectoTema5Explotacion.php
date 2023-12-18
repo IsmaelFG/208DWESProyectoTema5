@@ -41,13 +41,13 @@
             $conn = new PDO($dsn, $username, $password);
 
             $query = "INSERT INTO dbs12302442.T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenDeNegocio, T02_FechaBajaDepartamento) VALUES
-('DVT', 'Departamento de Ventas', '2022-05-10 08:30:00', 100000.50, NULL),
-('DMT', 'Departamento de Marketing', '2021-11-23 14:45:00', 75000.25, NULL),
-('DRH', 'Departamento de Recursos Humanos', '2023-02-15 10:00:00', 60000.75, NULL),
-('DFN', 'Departamento de Finanzas', '2022-08-03 12:15:00', 90000.90, NULL);";
+    ('D01', 'Departamento 1', now(), 50000.00, NULL),
+    ('D02', 'Departamento 2', now(), 75000.00, '2023-02-15 14:45:00'),
+    ('D03', 'Departamento 3', now(), 30000.00, NULL),
+    ('D04', 'Departamento 4', now(), 100000.00, '2023-03-10 18:30:00'),
+    ('D05', 'Departamento 5', now(), 60000.00, NULL);";
 
-            $query2 = "INSERT INTO dbs12302442.T01_Usuario (T01_CodUsuario, T01_Password, T01_DescUsuario,T01_Perfil)
-VALUES
+            $query2 = "INSERT INTO dbs12302442.T01_Usuario (T01_CodUsuario, T01_Password, T01_DescUsuario,T01_Perfil) VALUES
   ('admin', SHA2(CONCAT('admin', 'paso'), 256), 'administrador', 'administrador'),
   ('alvaro', SHA2(CONCAT('alvaro', 'paso'), 256), 'Álvaro Cordero Miñambres', 'usuario'),
   ('carlos', SHA2(CONCAT('carlos', 'paso'), 256), 'Carlos García Cachón', 'usuario'),

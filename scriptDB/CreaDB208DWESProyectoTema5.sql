@@ -14,8 +14,7 @@ CREATE TABLE IF NOT EXISTS T01_Usuario (
     T01_FechaHoraUltimaConexion DATETIME,
     T01_Perfil ENUM('usuario', 'administrador') NOT NULL DEFAULT 'usuario',
     T01_ImagenUsuario LONGBLOB,
-    PRIMARY KEY (T01_CodUsuario)
-);
+    PRIMARY KEY (T01_CodUsuario));
 
 -- Crea la tabla Departamento
 CREATE TABLE IF NOT EXISTS T02_Departamento (
@@ -24,8 +23,7 @@ CREATE TABLE IF NOT EXISTS T02_Departamento (
     T02_FechaCreacionDepartamento DATETIME NOT NULL,
     T02_VolumenDeNegocio FLOAT NOT NULL,
     T02_FechaBajaDepartamento DATETIME DEFAULT NULL,
-    PRIMARY KEY (T02_CodDepartamento)
-);
+    PRIMARY KEY (T02_CodDepartamento));
 
 -- Crear usuario y dar privilegios
 CREATE USER 'user208DWESProyectoTema5'@'%' IDENTIFIED BY 'paso';
