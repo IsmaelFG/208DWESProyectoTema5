@@ -41,11 +41,12 @@
             $conn = new PDO($dsn, $username, $password);
 
             $query = "CREATE TABLE IF NOT EXISTS dbs12302442.T02_Departamento (
-        T02_CodDepartamento CHAR(3) PRIMARY KEY,
-        T02_DescDepartamento VARCHAR(255),
-        T02_FechaCreacionDepartamento DATETIME,
-        T02_VolumenDeNegocio FLOAT,
-        T02_FechaBajaDepartamento DATETIME);";
+    T02_CodDepartamento CHAR(3) NOT NULL,
+    T02_DescDepartamento VARCHAR(255) NOT NULL,
+    T02_FechaCreacionDepartamento DATETIME NOT NULL,
+    T02_VolumenDeNegocio FLOAT NOT NULL,
+    T02_FechaBajaDepartamento DATETIME DEFAULT NULL,
+    PRIMARY KEY (T02_CodDepartamento));";
 
             $query2 = "CREATE TABLE IF NOT EXISTS T01_Usuario (
     T01_CodUsuario CHAR(8) NOT NULL CHECK(CHAR_LENGTH(T01_CodUsuario) BETWEEN 4 AND 8),
